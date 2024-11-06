@@ -1,6 +1,6 @@
-[submodule "express-api/app"]
-	path = express-api/app
-	url = git@github.com:CRISOMG/onegroup-api.git
 [submodule "nuxt-app/app"]
 	path = nuxt-app/app
 	url = git@github.com:CRISOMG/onegroup-web.git
+[submodule "express-api/api"]
+	path = express-api/api
+	url = git@github.com:CRISOMG/onegroup-api.git
