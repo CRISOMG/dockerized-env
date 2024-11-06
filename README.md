@@ -7,10 +7,10 @@ git clone --recurse-submodules <repository-url>
 # Clone recursively the last commit
 git clone --depth 1 --recurse-submodules <repository-url>
 
-# Update submodule (loading all history)
+# Update submodule (loading all history) equivalent to git pull
 git submodule update --remote
 
-# Update submodule (loading last commit)
+# Update submodule (loading last commit) equivalent to git pull
 git submodule update --remote --depth 1
 ```
 
