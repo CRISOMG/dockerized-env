@@ -1,6 +1,7 @@
 FROM node:18.20
 WORKDIR /app
-RUN apt-get install -y htop
+RUN apt-get update 
+# RUN apt-get install -y htop
 # COPY ./app .
 RUN yarn install
 RUN yarn global add pm2

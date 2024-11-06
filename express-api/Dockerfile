@@ -2,7 +2,7 @@ FROM node:18.20
 
 RUN apt-get update 
 RUN apt-get install -y ffmpeg
-RUN apt-get install -y htop
+# RUN apt-get install -y htop
 RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
