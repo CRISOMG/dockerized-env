@@ -1,3 +1,4 @@
+name: "omg-media"
 services:
   nuxt-app:
     container_name: nuxt-app
@@ -8,6 +9,7 @@ services:
       - ./nuxt-app/app:/app
       - app-node_modules:/app/node_modules
     tty: true
+    # command: yarn start
     # command: yarn dev
     ports:
       - "3001:3001"
@@ -23,6 +25,7 @@ services:
       - ./express-api/api:/api
       - api-node_modules:/api/node_modules
     tty: true
+    # command: yarn start
     # command: yarn dev
     ports:
       - "3002:3002"

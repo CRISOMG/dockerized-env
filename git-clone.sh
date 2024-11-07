@@ -15,6 +15,6 @@ repo_slug="CRISOMG/dockerized-env.git"
 github_personal_access_toke="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"
 repo_url="https://$github_personal_access_toke@github.com/$repo_slug"
 
-git clone $repo_url ../test-clone;
-git clone "https://$github_personal_access_toke@github.com/CRISOMG/onegroup-web.git" ../test-clone/nuxt-app/app;
-git clone "https://$github_personal_access_toke@github.com/CRISOMG/onegroup-api.git" ../test-clone/express-api/api;
+git clone $repo_url ./;
+git clone "https://$github_personal_access_toke@github.com/CRISOMG/onegroup-web.git" ./nuxt-app/app;
+git clone "https://$github_personal_access_toke@github.com/CRISOMG/onegroup-api.git" ./express-api/api;

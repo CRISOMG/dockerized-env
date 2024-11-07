@@ -13,5 +13,5 @@ RUN yarn global add pm2
 RUN yarn install
 EXPOSE 3002
 
-CMD ["yarn","dev"]
+# CMD ["yarn","dev"]
 # CMD ["pm2-runtime", "start", "/api/ecosystem.config.cjs"]
