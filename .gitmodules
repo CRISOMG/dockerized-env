@@ -4,3 +4,5 @@
 [submodule "express-api/api"]
 	path = express-api/api
 	url = git@github.com:CRISOMG/onegroup-api.git
+[url "https://github.com/"]
+    insteadOf = git@github.com:

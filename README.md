@@ -12,6 +12,8 @@ git submodule update --remote
 
 # Update submodule (loading last commit) equivalent to git pull
 git submodule update --remote --depth 1
+
+git submodule update --init --recursive
 ```
 
 ## Setup
