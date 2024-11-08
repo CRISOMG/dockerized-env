@@ -2,12 +2,15 @@ name: "omg-media"
 services:
   nuxt-app:
     container_name: nuxt-app
+    environment:
+      - NODE_ENV=${NODE_ENV}
     build:
       context: ./nuxt-app
     restart: unless-stopped
     volumes:
-      - ./nuxt-app/app:/app
+      # - ./nuxt-app/app:/app
       - app-node_modules:/app/node_modules
+
     tty: true
     # command: yarn start
     # command: yarn dev
@@ -18,11 +21,13 @@ services:
 
   express-api:
     container_name: express-api
+    environment:
+      - NODE_ENV=${NODE_ENV}
     build:
       context: ./express-api
     restart: unless-stopped
     volumes:
-      - ./express-api/api:/api
+      # - ./express-api/api:/api
       - api-node_modules:/api/node_modules
     tty: true
     # command: yarn start
