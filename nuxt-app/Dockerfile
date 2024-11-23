@@ -6,6 +6,7 @@ FROM node:20.18-alpine
 
 RUN apk update && apk add --no-cache tini bash htop
 # SHELL ["/bin/bash", "-c"]
+ENV NODE_ENV=${NODE_ENV}
 
 
 WORKDIR /app
@@ -24,6 +25,5 @@ EXPOSE 3001
 # CMD ["bash"]
 
 # ARG NODE_ENV
-ENV NODE_ENV=${NODE_ENV}
 # CMD ${if eq "${NODE_ENV}" "development"} ["yarn","dev"] ${else} ["yarn","start"]
 CMD sh -c 'if [ "$NODE_ENV" = "development" ]; then yarn dev; else pm2-runtime start ecosystem.config.cjs; fi'

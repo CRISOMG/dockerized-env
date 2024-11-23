@@ -20,13 +20,6 @@ RUN yarn install
 VOLUME /api/dist 
 RUN yarn build
 EXPOSE 3002
-# CMD ["yarn","dev"]
-# CMD ["pm2-runtime", "start", "/api/ecosystem.config.cjs"]
 
-# ENTRYPOINT ["/sbin/tini", "--"]
-# CMD ["bash"]
-
-# ARG NODE_ENV
-# CMD ${if "${NODE_ENV}" -eq "development"} ["yarn","dev"] ${else}  ["yarn","start"]
-CMD sh -c 'if [ "$NODE_ENV" = "development" ]; then yarn dev; else pm2-runtime start ecosystem.config.cjs; fi'
+CMD ["pm2-runtime", "start", "/api/ecosystem.config.cjs"]
 

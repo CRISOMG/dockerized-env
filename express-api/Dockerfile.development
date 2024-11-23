@@ -7,7 +7,7 @@ FROM node:20.18-alpine
 
 RUN apk update && apk add --no-cache ffmpeg tini bash htop
 # SHELL ["/bin/bash", "-c"]
-ENV NODE_ENV=${NODE_ENV}
+ENV NODE_ENV='development'
 
 
 WORKDIR /api
@@ -17,16 +17,9 @@ COPY ./api/ ./
 RUN yarn global add pm2
 RUN yarn install
 
-VOLUME /api/dist 
-RUN yarn build
 EXPOSE 3002
 # CMD ["yarn","dev"]
-# CMD ["pm2-runtime", "start", "/api/ecosystem.config.cjs"]
 
 # ENTRYPOINT ["/sbin/tini", "--"]
 # CMD ["bash"]
-
-# ARG NODE_ENV
-# CMD ${if "${NODE_ENV}" -eq "development"} ["yarn","dev"] ${else}  ["yarn","start"]
-CMD sh -c 'if [ "$NODE_ENV" = "development" ]; then yarn dev; else pm2-runtime start ecosystem.config.cjs; fi'
 
