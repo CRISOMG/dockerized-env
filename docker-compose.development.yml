@@ -3,12 +3,14 @@ services:
   nuxt-app:
     container_name: nuxt-app
     environment:
-      - NODE_ENV=${NODE_ENV}
+      - NODE_ENV="development"
     build:
       context: ./nuxt-app
+      dockerfile: docker/Dockerfile.development
+
     restart: unless-stopped
     volumes:
-      - ./nuxt-app/app:/app
+      - ./nuxt-app:/app
       - app-build-volume:/app/.output
       - app-deps:/app/node_modules
 
@@ -23,18 +25,18 @@ services:
   express-api:
     container_name: express-api
     environment:
-      - NODE_ENV=${NODE_ENV}
+      - NODE_ENV="development"
     build:
       context: ./express-api
+      dockerfile: docker/Dockerfile.development
     restart: unless-stopped
     volumes:
-      - ./express-api/api:/api
+      - ./express-api:/api
       - api-build-volume:/api/dist
       - api-deps:/api/node_modules
 
     tty: true
-    # command: yarn start
-    # command: yarn dev
+
     ports:
       - "3002:3002"
       - "9229:9229"
@@ -53,9 +55,9 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/configs:/etc/nginx/conf.d/
 
-    # depends_on:
-    #   - nuxt-app
-    #   - express-api
+    depends_on:
+      - nuxt-app
+      - express-api
     networks:
       - app-network
 volumes:
